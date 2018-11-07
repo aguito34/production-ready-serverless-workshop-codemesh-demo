@@ -1,4 +1,4 @@
-service: workshop-yancui
+service: workshop-agustina
 
 plugins:
   - serverless-pseudo-parameters
@@ -100,7 +100,7 @@ resources:
     restaurantsTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: restaurants-${self:provider.stage}-yancui
+        TableName: restaurants-${self:provider.stage}-agustina
         AttributeDefinitions:
           - AttributeName: name
             AttributeType: S
@@ -114,19 +114,19 @@ resources:
     orderEventsStream:
       Type: AWS::Kinesis::Stream
       Properties: 
-        Name: orders-${self:provider.stage}-yancui
+        Name: orders-${self:provider.stage}-agustina
         ShardCount: 1
 
     restaurantNotificationTopic:
       Type: AWS::SNS::Topic
       Properties: 
-        DisplayName: restaurants-${self:provider.stage}-yancui
-        TopicName: restaurants-${self:provider.stage}-yancui
+        DisplayName: restaurants-${self:provider.stage}-agustina
+        TopicName: restaurants-${self:provider.stage}-agustina
 
     mySubscription:
       Type: AWS::SNS::Subscription
       Properties:
-        Endpoint: theburningmonk@gmail.com
+        Endpoint: aguscuretti@gmail.com
         Protocol: email
         TopicArn: 
           Ref: restaurantNotificationTopic            
